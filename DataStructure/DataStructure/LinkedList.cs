@@ -92,5 +92,15 @@ namespace DataStructure
                 Console.WriteLine("Node inserted at position : " + (i + 1));
             }
         }
+        public void DeleteFirst()
+        {
+            if(this.head == null)
+            {
+                Console.WriteLine("List is already empty");
+            }
+            int deleteNode = this.head.data;
+            this.head = this.head.next;
+            Console.WriteLine("Node deleted : " + deleteNode);
+        }
      }
 }

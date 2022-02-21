@@ -6,101 +6,139 @@ using System.Threading.Tasks;
 
 namespace DataStructure
 {
-    class LinkedList
+    internal class LinkedList
     {
+
         public Node head;
-       
-        public void AddLast(int data) //Method to Add Node in Linked List
+        //Method to Add Node in Linked List
+        public void AddLast(int data)
         {
-
             Node newnode = new Node(data);
-            if (this.head == null)//condition to check head and add first Node.
-
+            //condition to Check head and add first Node.
+            if (this.head == null)
             {
                 this.head = newnode;
             }
             else
             {
+                //Temp Node to reference to iterate through nodes & not lose or break node
                 Node temp = head;
+                //Loop to check next address in Node.
                 while (temp.next != null)
                 {
                     temp = temp.next;
                 }
                 temp.next = newnode;
             }
-            Console.WriteLine("Inserted into node: " + newnode.data);
+            Console.WriteLine("inserted into node: " + newnode.data);
         }
+
+        //Display Method
         public void DisplayLinkedList()
         {
-            Console.WriteLine("Display Nodes in the Linked list");
+            Console.WriteLine("Display nodes of Linked List");
             Node temp = head;
-            if(temp == null)
+            if (temp == null)
             {
-                Console.WriteLine("Currently Linked List is Empty");
+                Console.WriteLine("Linked list is Empty");
                 return;
             }
             else
             {
-                while(temp.next != null)
+                while (temp != null)
                 {
-                    Console.WriteLine("Nodes are : "+temp.data);
-                    temp = temp.next;   
+                    Console.WriteLine("Nodes are : " + temp.data);
+                    temp = temp.next;
                 }
             }
         }
-
-        public void AddFirst(int data)//to add node at first position
+        //Method to Add Node at First in Linked List
+        public void AddFirst(int data)
         {
             Node newnode = new Node(data);
             newnode.next = head;
             head = newnode;
             Console.WriteLine("{0} : Nodes inserted in Linked list ", newnode.data);
         }
-        
-        public void Append(int data)//to append to linked list
+
+        //method to append 
+        public void Append(int data)
         {
             AddLast(data);
-            Console.WriteLine("{0} Appended to list", data);
+            Console.WriteLine("{0} node Appended", data);
         }
 
-        public void InsertedAtPosition(int pos, int data)//to insert at a position
+        //method to insert at certain position
+        public void InsertAtPosition(int pos, int data)
         {
             Node temp;
             int i;
-            if(pos ==1)//if position is 1 then insert at start
+            //if position is 1 then insert at start
+            if (pos == 1)
             {
                 temp = new Node(data);
                 temp.next = head;
-                head= temp;
+                head = temp;
                 return;
+            }
+            Node p = head;
+            //position may be more than available nodes so loop to traverse on condition if p is null then terminate loop
+            for (i = 1; i < pos - 1 && p != null; i++)
+            {
+                p = p.next;
 
             }
-            Node n = head;
-            for(i=1; i<pos-1 && n != null; i++)
+            //if p is null prompt msg to user
+            if (p == null)
             {
-                n = n.next;
+                Console.WriteLine("you can insert only upto " + i + "th position");
             }
-            if(n == null)
-            {
-                Console.WriteLine("insert only upto " + i + "th position");
-            }
+            //if p is not null then create new node  & pass the data & p pointer to temp pointer & temp to p pointer
             else
             {
-                temp= new Node(data);
-                temp.next=n.next;
-                n.next=temp;
-                Console.WriteLine("Node inserted at position : " + (i + 1));
+                temp = new Node(data);
+                temp.next = p.next;
+                p.next = temp;
+                Console.WriteLine("node inserted at position : " + (i + 1));
             }
         }
-        public void DeleteFirst()
+        //Method to delete first node
+        public int DeleteFirst()
         {
-            if(this.head == null)
+            if (this.head == null)
             {
-                Console.WriteLine("List is already empty");
+                Console.WriteLine("list is already empty, there is nothing to delete");
+                return 0;
             }
             int deleteNode = this.head.data;
             this.head = this.head.next;
-            Console.WriteLine("Node deleted : " + deleteNode);
+            Console.WriteLine("node deleted is " + deleteNode);
+            return deleteNode;
         }
-     }
+
+        //Method to delete Last Node
+        public int DeleteLast()
+        {
+            Node newNode = this.head;
+            if (this.head == null)
+            {
+                Console.WriteLine("list is already empty, there is nothing to delete");
+                return 0;
+            }
+            if (this.head.next == null)
+            {
+                this.head = null;
+                return 0;
+            }
+            //checking for tail Node.
+            while (newNode.next.next != null)
+            {
+                newNode = newNode.next;
+            }
+            int deleteLastNode = newNode.next.data;
+            newNode.next = null;
+            Console.WriteLine("node deleted at Last position is " + deleteLastNode);
+            return deleteLastNode;
+        }
+    }
 }

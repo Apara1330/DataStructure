@@ -36,8 +36,8 @@ namespace DataStructure
             customLinkedList.Append(70);
             customLinkedList.DisplayLinkedList();
            
-            // customLinkedList.InsertedAtPosition(2, 30);
-            //customLinkedList.DisplayLinkedList();
+            customLinkedList.InsertedAtPosition(3, 30);
+            customLinkedList.DisplayLinkedList();
             Console.ReadLine();
         }
     }

@@ -10,7 +10,7 @@ namespace DataStructure
     {
         public Node head;
        
-        public void AddNode(int data) //Method to Add Node in Linked List
+        public void AddLast(int data) //Method to Add Node in Linked List
         {
 
             Node newnode = new Node(data);
@@ -21,20 +21,41 @@ namespace DataStructure
             }
             else
             {
-                var lastNode = GetLastNode();
-                lastNode.next = newnode;
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = newnode;
             }
-            Console.WriteLine("inserted into node: " + newnode.data);
+            Console.WriteLine("Inserted into node: " + newnode.data);
+        }
+        public void DisplayLinkedList()
+        {
+            Console.WriteLine("Display Nodes in the Linked list");
+            Node temp = head;
+            if(temp == null)
+            {
+                Console.WriteLine("Currently Linked List is Empty");
+                return;
+            }
+            else
+            {
+                while(temp.next != null)
+                {
+                    Console.WriteLine("Nodes are : "+temp.data);
+                    temp = temp.next;   
+                }
+            }
         }
 
-        public Node GetLastNode()
+        public void AddFirst(int data)//to add node at first position
         {
-            Node temp = head; //Temp Node to reference to iterate through nodes & not break node
-            while (temp.next != null) //Loop to check next address in Node.
-            {
-                temp = temp.next;
-            }
-            return temp;
+            Node newnode = new Node(data);
+            newnode.next = head;
+            head = newnode;
+            Console.WriteLine("{0} : Nodes inserted in Linked list ", newnode.data);
         }
+        
     }
 }

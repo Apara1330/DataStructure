@@ -140,7 +140,7 @@ namespace DataStructure
             Console.WriteLine("node deleted at Last position is " + deleteLastNode);
             return deleteLastNode;
         }
-    
+
 
         public int SearchNode(int value)//to search node
         {
@@ -181,6 +181,22 @@ namespace DataStructure
                 temp.next = p.next;
                 p.next = temp;
             }
+        }
+        public void Size()
+        {
+            if (this.head == null)
+            {
+                Console.WriteLine("Linked list is empty");
+                return;
+            }
+            int count = 0;
+            Node temp = this.head;
+            while (temp != null)
+            {
+                temp = temp.next;
+                count++;
+            }
+            Console.WriteLine("Size of Linked List:" + count);
         }
     }
 }

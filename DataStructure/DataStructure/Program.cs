@@ -38,13 +38,11 @@ namespace DataStructure
              customLinkedList.InsertedAtPosition(3, 30);
              customLinkedList.DisplayLinkedList();*/
 
-            LinkedList customLinkedList = new LinkedList();
+           LinkedList customLinkedList = new LinkedList();
             customLinkedList.Append(56);
             customLinkedList.Append(70);
-            customLinkedList.Append(20);
-            customLinkedList.Append(40);
             customLinkedList.DisplayLinkedList();
-            customLinkedList.InsertedAtPosition(3, 30);
+            customLinkedList.InsertAtPosition(2, 30);
             customLinkedList.DisplayLinkedList();
             customLinkedList.DeleteFirst();
             customLinkedList.DisplayLinkedList();

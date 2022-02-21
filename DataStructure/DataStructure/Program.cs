@@ -56,6 +56,7 @@ namespace DataStructure
             customLinkedList.DisplayLinkedList();
             customLinkedList.DeleteLast();
             customLinkedList.DisplayLinkedList();
+            customLinkedList.SearchNode(56);
             Console.ReadLine();
         }
     }

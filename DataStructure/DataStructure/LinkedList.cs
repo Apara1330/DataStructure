@@ -140,5 +140,21 @@ namespace DataStructure
             Console.WriteLine("node deleted at Last position is " + deleteLastNode);
             return deleteLastNode;
         }
+
+        public int SearchNode(int value)//to search node
+        {
+            Node temp = this.head;
+            while (temp != null)
+            {
+                if (temp.data == value)
+                {
+                    Console.WriteLine("The searched node is : " + value);
+                    return value;
+                }
+                temp = temp.next;
+            }
+            Console.WriteLine("{0} is not a Linked List Node", value);
+            return 0;
+        }
     }
 }

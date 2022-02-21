@@ -52,11 +52,15 @@ namespace DataStructure
             customLinkedList.Append(56);
             customLinkedList.Append(70);
             customLinkedList.DisplayLinkedList();
-            customLinkedList.InsertAtPosition(2, 30);
+            customLinkedList.InsertAtPosition(3, 30);
+            customLinkedList.DisplayLinkedList();
+            customLinkedList.DeleteFirst();
             customLinkedList.DisplayLinkedList();
             customLinkedList.DeleteLast();
             customLinkedList.DisplayLinkedList();
-            customLinkedList.SearchNode(56);
+            customLinkedList.SearchNode(30);
+            customLinkedList.InsertAfter(15, 30);
+            customLinkedList.DisplayLinkedList();
             Console.ReadLine();
         }
     }

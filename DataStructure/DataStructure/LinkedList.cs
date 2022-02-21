@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,21 +10,21 @@ namespace DataStructure
     {
 
         public Node head;
-        //Method to Add Node in Linked List
-        public void AddLast(int data)
+
+        public void AddLast(int data) // To Add Node in Linked List
         {
             Node newnode = new Node(data);
-            //condition to Check head and add first Node.
-            if (this.head == null)
+
+            if (this.head == null) //condition to Check head and add first Node.
             {
                 this.head = newnode;
             }
             else
             {
-                //Temp Node to reference to iterate through nodes & not lose or break node
+
                 Node temp = head;
-                //Loop to check next address in Node.
-                while (temp.next != null)
+
+                while (temp.next != null) //To check next address in Node.
                 {
                     temp = temp.next;
                 }
@@ -33,8 +33,8 @@ namespace DataStructure
             Console.WriteLine("inserted into node: " + newnode.data);
         }
 
-        //Display Method
-        public void DisplayLinkedList()
+
+        public void DisplayLinkedList()//Display elements in the  list
         {
             Console.WriteLine("Display nodes of Linked List");
             Node temp = head;
@@ -52,8 +52,8 @@ namespace DataStructure
                 }
             }
         }
-        //Method to Add Node at First in Linked List
-        public void AddFirst(int data)
+
+        public void AddFirst(int data) //To Add Node at First position in Linked List
         {
             Node newnode = new Node(data);
             newnode.next = head;
@@ -61,20 +61,20 @@ namespace DataStructure
             Console.WriteLine("{0} : Nodes inserted in Linked list ", newnode.data);
         }
 
-        //method to append 
-        public void Append(int data)
+
+        public void Append(int data)//To append 
         {
             AddLast(data);
             Console.WriteLine("{0} node Appended", data);
         }
 
-        //method to insert at certain position
-        public void InsertAtPosition(int pos, int data)
+
+        public void InsertAtPosition(int pos, int data) //To insert at specific position
         {
             Node temp;
             int i;
-            //if position is 1 then insert at start
-            if (pos == 1)
+
+            if (pos == 1) //if position is 1 then insert at start
             {
                 temp = new Node(data);
                 temp.next = head;
@@ -82,19 +82,19 @@ namespace DataStructure
                 return;
             }
             Node p = head;
-            //position may be more than available nodes so loop to traverse on condition if p is null then terminate loop
-            for (i = 1; i < pos - 1 && p != null; i++)
+
+            for (i = 1; i < pos - 1 && p != null; i++) //position may be more than available nodes so loop to traverse on condition if p is null then terminate loop
             {
                 p = p.next;
 
             }
-            //if p is null prompt msg to user
-            if (p == null)
+
+            if (p == null) //if p is null pop message
             {
                 Console.WriteLine("you can insert only upto " + i + "th position");
             }
-            //if p is not null then create new node  & pass the data & p pointer to temp pointer & temp to p pointer
-            else
+
+            else//if p is not null then create new node  & pass the data & p pointer to temp pointer & temp to p pointer
             {
                 temp = new Node(data);
                 temp.next = p.next;
@@ -102,12 +102,12 @@ namespace DataStructure
                 Console.WriteLine("node inserted at position : " + (i + 1));
             }
         }
-        //Method to delete first node
-        public int DeleteFirst()
+
+        public int DeleteFirst()//To delete node at first position 
         {
             if (this.head == null)
             {
-                Console.WriteLine("list is already empty, there is nothing to delete");
+                Console.WriteLine("List is already empty");
                 return 0;
             }
             int deleteNode = this.head.data;
@@ -116,13 +116,13 @@ namespace DataStructure
             return deleteNode;
         }
 
-        //Method to delete Last Node
-        public int DeleteLast()
+
+        public int DeleteLast() //To delete Last Node
         {
             Node newNode = this.head;
             if (this.head == null)
             {
-                Console.WriteLine("list is already empty, there is nothing to delete");
+                Console.WriteLine("List is already empty");
                 return 0;
             }
             if (this.head.next == null)
@@ -130,8 +130,8 @@ namespace DataStructure
                 this.head = null;
                 return 0;
             }
-            //checking for tail Node.
-            while (newNode.next.next != null)
+
+            while (newNode.next.next != null)//checking for tail Node.
             {
                 newNode = newNode.next;
             }
@@ -140,6 +140,7 @@ namespace DataStructure
             Console.WriteLine("node deleted at Last position is " + deleteLastNode);
             return deleteLastNode;
         }
+    
 
         public int SearchNode(int value)//to search node
         {

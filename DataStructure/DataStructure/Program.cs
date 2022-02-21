@@ -24,12 +24,20 @@ namespace DataStructure
              customLinkedList.AddFirst(56);
              customLinkedList.DisplayLinkedList();*/
 
-            LinkedList customLinkedList = new LinkedList();
+            /*LinkedList customLinkedList = new LinkedList();
             customLinkedList.Append(56);
             customLinkedList.Append(30);
             customLinkedList.Append(70);
             customLinkedList.Append(77);
+            customLinkedList.DisplayLinkedList();*/
+
+            LinkedList customLinkedList = new LinkedList();
+            customLinkedList.Append(56);
+            customLinkedList.Append(70);
             customLinkedList.DisplayLinkedList();
+           
+            // customLinkedList.InsertedAtPosition(2, 30);
+            //customLinkedList.DisplayLinkedList();
             Console.ReadLine();
         }
     }

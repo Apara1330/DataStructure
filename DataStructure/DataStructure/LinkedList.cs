@@ -57,10 +57,40 @@ namespace DataStructure
             Console.WriteLine("{0} : Nodes inserted in Linked list ", newnode.data);
         }
         
-        public void Append(int data)
+        public void Append(int data)//to append to linked list
         {
             AddLast(data);
-            Console.WriteLine("{0} node Appended", data);
+            Console.WriteLine("{0} Appended to list", data);
         }
-    }
+
+        public void InsertedAtPosition(int pos, int data)//to insert at a position
+        {
+            Node temp;
+            int i;
+            if(pos ==1)//if position is 1 then insert at start
+            {
+                temp = new Node(data);
+                temp.next = head;
+                head= temp;
+                return;
+
+            }
+            Node n = head;
+            for(i=1; i<pos-1 && n != null; i++)
+            {
+                n = n.next;
+            }
+            if(n == null)
+            {
+                Console.WriteLine("insert only upto " + i + "th position");
+            }
+            else
+            {
+                temp= new Node(data);
+                temp.next=n.next;
+                n.next=temp;
+                Console.WriteLine("Node inserted at position : " + (i + 1));
+            }
+        }
+     }
 }
